@@ -1,0 +1,639 @@
+/* Perl5AV.pmc
+ *  Copyright: 2001-2003 The Perl Foundation.  All Rights Reserved.
+ *  CVS Info
+ *     $Id: perl5xpvhv.pmc,v 1.1 2004/02/27 14:23:40 sky Exp $
+ *  Overview:
+ *     These are the vtable functions for the Perl5AV base class
+ *  Data Structure and Algorithms:
+ *  History:
+ *  Notes:
+ *  References:
+ */
+
+#include "parrot/parrot.h"
+
+#include "EXTERN.h"
+#include "config.h"
+#undef HAS_OFF64_T
+#include "perl.h"
+
+pmclass Perl5XPVHV need_ext {
+
+    void init () {	
+	PMC_data(SELF) = malloc(sizeof(struct xpvhv));
+    }
+
+
+    void init_pmc (PMC* initializer) {
+	abort();
+    }
+
+
+    void* get_pointer() {
+        return PMC_data(SELF);
+    }
+
+    void init_pmc_props (PMC* initializer, PMC* properties) {
+    }
+
+    void morph (INTVAL type) {
+    }
+
+    void mark () {
+    }
+
+    void destroy () {
+    }
+
+    PMC* getprop (STRING* key) {
+        return (PMC*)0;
+    }
+
+    void setprop (STRING* key, PMC* value) {
+    }
+
+    void delprop (STRING* key) {
+    }
+
+    PMC* getprops () {
+        return (PMC*)0;
+    }
+
+    INTVAL type_keyed (PMC* key) {
+        return (INTVAL)0;
+    }
+
+    INTVAL type_keyed_int (INTVAL key) {
+        return (INTVAL)0;
+    }
+
+    UINTVAL subtype (INTVAL type) {
+        return (UINTVAL)0;
+    }
+
+    UINTVAL subtype_keyed (PMC* key, INTVAL type) {
+        return (UINTVAL)0;
+    }
+
+    UINTVAL subtype_keyed_int (INTVAL key, INTVAL type) {
+        return (UINTVAL)0;
+    }
+
+    STRING* name_keyed (PMC* key) {
+        return (STRING*)0;
+    }
+
+    STRING* name_keyed_int (INTVAL key) {
+        return (STRING*)0;
+    }
+
+
+    PMC* find_method (STRING* method_name) {
+        return (PMC*)0;
+    }
+
+    PMC* find_method_keyed (PMC* key, STRING* method_name) {
+        return (PMC*)0;
+    }
+
+    PMC* find_method_keyed_int (INTVAL key, STRING* method_name) {
+        return (PMC*)0;
+    }
+
+    INTVAL get_integer () {
+        return (INTVAL)0;
+    }
+
+    INTVAL get_integer_keyed (PMC* key) {
+        return (INTVAL)0;
+    }
+
+    INTVAL get_integer_keyed_int (INTVAL key) {
+        return (INTVAL)0;
+    }
+
+    FLOATVAL get_number () {
+        return (FLOATVAL)0;
+    }
+
+    FLOATVAL get_number_keyed (PMC* key) {
+        return (FLOATVAL)0;
+    }
+
+    FLOATVAL get_number_keyed_int (INTVAL key) {
+        return (FLOATVAL)0;
+    }
+
+    BIGNUM* get_bignum () {
+        return (BIGNUM*)0;
+    }
+
+    BIGNUM* get_bignum_keyed (PMC* key) {
+        return (BIGNUM*)0;
+    }
+
+    BIGNUM* get_bignum_keyed_int (INTVAL key) {
+        return (BIGNUM*)0;
+    }
+
+    STRING* get_string () {
+	printf("Get string is called!\n");
+        return (STRING*) string_make(interpreter, "true", 4, 0, 0, 0);
+    }
+
+    STRING* get_string_keyed (PMC* key) {
+        return (STRING*)0;
+    }
+
+    STRING* get_string_keyed_int (INTVAL key) {
+        return (STRING*)0;
+    }
+
+    INTVAL get_bool () {
+        return (INTVAL)0;
+    }
+
+    INTVAL get_bool_keyed (PMC* key) {
+        return (INTVAL)0;
+    }
+
+    INTVAL get_bool_keyed_int (INTVAL key) {
+        return (INTVAL)0;
+    }
+
+    PMC* get_pmc () {
+        return (PMC*)0;
+    }
+
+    PMC* get_pmc_keyed (PMC* key) {
+        return (PMC*)0;
+    }
+
+    PMC* get_pmc_keyed_int (INTVAL key) {
+        return (PMC*)0;
+    }
+
+    void set_integer (PMC* value) {
+    }
+
+    void set_integer_native (INTVAL value) {
+    }
+
+    void set_integer_same (PMC* value) {
+    }
+
+    void set_integer_keyed (PMC* key, INTVAL value) {
+    }
+
+    void set_integer_keyed_int (INTVAL key, INTVAL value) {
+    }
+
+    void set_number (PMC* value) {
+    }
+
+    void set_number_native (FLOATVAL value) {
+    }
+
+    void set_number_same (PMC* value) {
+    }
+
+    void set_number_keyed (PMC* key, FLOATVAL value) {
+    }
+
+    void set_number_keyed_int (INTVAL key, FLOATVAL value) {
+    }
+
+    void set_bignum (PMC* value) {
+    }
+
+    void set_bignum_native (BIGNUM* value) {
+    }
+
+    void set_bignum_same (PMC* value) {
+    }
+
+    void set_bignum_keyed (PMC* key, BIGNUM* value) {
+    }
+
+    void set_bignum_keyed_int (INTVAL key, BIGNUM* value) {
+    }
+
+    void set_string (PMC* value) {
+    }
+
+    void set_string_native (STRING* value) {
+    }
+
+    void set_string_same (PMC* value) {
+    }
+
+    void set_string_keyed (PMC* key, STRING* value) {
+    }
+
+    void set_string_keyed_int (INTVAL key, STRING* value) {
+    }
+
+    void set_pmc (PMC* value) {
+    }
+
+    void set_pmc_keyed (PMC* key, PMC* value) {
+    }
+
+    void set_pmc_keyed_int (INTVAL key, PMC* value) {
+    }
+
+    void set_same (PMC* value) {
+    }
+
+    void set_same_keyed (PMC* key, PMC* value) {
+    }
+
+    void set_same_keyed_int (INTVAL key, PMC* value) {
+    }
+
+    INTVAL elements () {
+        return (INTVAL)0;
+    }
+
+    INTVAL elements_keyed (PMC* key) {
+        return (INTVAL)0;
+    }
+
+    INTVAL elements_keyed_int (INTVAL key) {
+        return (INTVAL)0;
+    }
+
+    INTVAL pop_integer () {
+        return (INTVAL)0;
+    }
+
+    FLOATVAL pop_float () {
+        return (FLOATVAL)0;
+    }
+
+    BIGNUM* pop_bignum () {
+        return (BIGNUM*)0;
+    }
+
+    STRING* pop_string () {
+        return (STRING*)0;
+    }
+
+    PMC* pop_pmc () {
+        return (PMC*)0;
+    }
+
+    void push_integer (INTVAL value) {
+    }
+
+    void push_float (FLOATVAL value) {
+    }
+
+    void push_bignum (BIGNUM* value) {
+    }
+
+    void push_string (STRING* value) {
+    }
+
+    void push_pmc (PMC* value) {
+    }
+
+    INTVAL shift_integer () {
+        return (INTVAL)0;
+    }
+
+    FLOATVAL shift_float () {
+        return (FLOATVAL)0;
+    }
+
+    BIGNUM* shift_bignum () {
+        return (BIGNUM*)0;
+    }
+
+    STRING* shift_string () {
+        return (STRING*)0;
+    }
+
+    PMC* shift_pmc () {
+        return (PMC*)0;
+    }
+
+    void unshift_integer (INTVAL value) {
+    }
+
+    void unshift_float (FLOATVAL value) {
+    }
+
+    void unshift_bignum (BIGNUM* value) {
+    }
+
+    void unshift_string (STRING* value) {
+    }
+
+    void unshift_pmc (PMC* value) {
+    }
+
+    void splice (PMC* value, INTVAL offset, INTVAL count) {
+    }
+
+    void add (PMC* value, PMC* dest) {
+    }
+
+    void add_int (INTVAL value, PMC* dest) {
+    }
+
+    void add_bignum (BIGNUM* value, PMC* dest) {
+    }
+
+    void add_float (FLOATVAL value, PMC* dest) {
+    }
+
+    void add_same (PMC* value, PMC* dest) {
+    }
+
+    void subtract (PMC* value, PMC* dest) {
+    }
+
+    void subtract_int (INTVAL value, PMC* dest) {
+    }
+
+    void subtract_bignum (BIGNUM* value, PMC* dest) {
+    }
+
+    void subtract_float (FLOATVAL value, PMC* dest) {
+    }
+
+    void subtract_same (PMC* value, PMC* dest) {
+    }
+
+    void multiply (PMC* value, PMC* dest) {
+    }
+
+    void multiply_int (INTVAL value, PMC* dest) {
+    }
+
+    void multiply_bignum (BIGNUM* value, PMC* dest) {
+    }
+
+    void multiply_float (FLOATVAL value, PMC* dest) {
+    }
+
+    void multiply_same (PMC* value, PMC* dest) {
+    }
+
+    void divide (PMC* value, PMC* dest) {
+    }
+
+    void divide_int (INTVAL value, PMC* dest) {
+    }
+
+    void divide_bignum (BIGNUM* value, PMC* dest) {
+    }
+
+    void divide_float (FLOATVAL value, PMC* dest) {
+    }
+
+    void divide_same (PMC* value, PMC* dest) {
+    }
+
+    void modulus (PMC* value, PMC* dest) {
+    }
+
+    void modulus_int (INTVAL value, PMC* dest) {
+    }
+
+    void modulus_bignum (BIGNUM* value, PMC* dest) {
+    }
+
+    void modulus_float (FLOATVAL value, PMC* dest) {
+    }
+
+    void modulus_same (PMC* value, PMC* dest) {
+    }
+
+    void cmodulus (PMC* value, PMC* dest) {
+    }
+
+    void cmodulus_int (INTVAL value, PMC* dest) {
+    }
+
+    void cmodulus_bignum (BIGNUM* value, PMC* dest) {
+    }
+
+    void cmodulus_float (FLOATVAL value, PMC* dest) {
+    }
+
+    void cmodulus_same (PMC* value, PMC* dest) {
+    }
+
+    void neg (PMC* dest) {
+    }
+
+    void bitwise_or (PMC* value, PMC* dest) {
+    }
+
+    void bitwise_or_int (INTVAL value, PMC* dest) {
+    }
+
+    void bitwise_or_same (PMC* value, PMC* dest) {
+    }
+
+    void bitwise_and (PMC* value, PMC* dest) {
+    }
+
+    void bitwise_and_int (INTVAL value, PMC* dest) {
+    }
+
+    void bitwise_and_same (PMC* value, PMC* dest) {
+    }
+
+    void bitwise_xor (PMC* value, PMC* dest) {
+    }
+
+    void bitwise_xor_int (INTVAL value, PMC* dest) {
+    }
+
+    void bitwise_xor_same (PMC* value, PMC* dest) {
+    }
+
+    void bitwise_ors (PMC* value, PMC* dest) {
+    }
+
+    void bitwise_ors_str (STRING* value, PMC* dest) {
+    }
+
+    void bitwise_ors_same (PMC* value, PMC* dest) {
+    }
+
+    void bitwise_ands (PMC* value, PMC* dest) {
+    }
+
+    void bitwise_ands_str (STRING* value, PMC* dest) {
+    }
+
+    void bitwise_ands_same (PMC* value, PMC* dest) {
+    }
+
+    void bitwise_xors (PMC* value, PMC* dest) {
+    }
+
+    void bitwise_xors_str (STRING* value, PMC* dest) {
+    }
+
+    void bitwise_xors_same (PMC* value, PMC* dest) {
+    }
+
+    void bitwise_not (PMC* dest) {
+    }
+
+    void bitwise_shl (PMC* value, PMC* dest) {
+    }
+
+    void bitwise_shl_int (INTVAL value, PMC* dest) {
+    }
+
+    void bitwise_shl_same (PMC* value, PMC* dest) {
+    }
+
+    void bitwise_shr (PMC* value, PMC* dest) {
+    }
+
+    void bitwise_shr_int (INTVAL value, PMC* dest) {
+    }
+
+    void bitwise_shr_same (PMC* value, PMC* dest) {
+    }
+
+    void concatenate (PMC* value, PMC* dest) {
+    }
+
+    void concatenate_native (STRING* value, PMC* dest) {
+    }
+
+    void concatenate_same (PMC* value, PMC* dest) {
+    }
+
+    INTVAL is_equal (PMC* value) {
+        return (INTVAL)0;
+    }
+
+    INTVAL is_same (PMC* value) {
+        return (INTVAL)0;
+    }
+
+    INTVAL is_same_keyed (PMC* key, PMC* value) {
+        return (INTVAL)0;
+    }
+
+    INTVAL is_same_keyed_int (INTVAL key, PMC* value) {
+        return (INTVAL)0;
+    }
+
+    INTVAL cmp (PMC* value) {
+        return (INTVAL)0;
+    }
+
+    INTVAL cmp_num (PMC* value) {
+        return (INTVAL)0;
+    }
+
+    INTVAL cmp_string (PMC* value) {
+        return (INTVAL)0;
+    }
+
+    void logical_or (PMC* value, PMC* dest) {
+    }
+
+    void logical_and (PMC* value, PMC* dest) {
+    }
+
+    void logical_xor (PMC* value, PMC* dest) {
+    }
+
+    void logical_not (PMC* dest) {
+    }
+
+    void repeat (PMC* value, PMC* dest) {
+    }
+
+    void repeat_int (INTVAL value, PMC* dest) {
+    }
+
+    void increment () {
+    }
+
+    void decrement () {
+    }
+
+    INTVAL exists_keyed (PMC* key) {
+        return (INTVAL)0;
+    }
+
+    INTVAL exists_keyed_int (INTVAL key) {
+        return (INTVAL)0;
+    }
+
+    INTVAL defined () {
+        return (INTVAL)0;
+    }
+
+    INTVAL defined_keyed (PMC* key) {
+        return (INTVAL)0;
+    }
+
+    INTVAL defined_keyed_int (INTVAL key) {
+        return (INTVAL)0;
+    }
+
+    void delete_keyed (PMC* key) {
+    }
+
+    void delete_keyed_int (INTVAL key) {
+    }
+
+    PMC* nextkey_keyed (PMC* key, INTVAL what) {
+        return (PMC*)0;
+    }
+
+    PMC* nextkey_keyed_int (INTVAL key, INTVAL what) {
+        return (PMC*)0;
+    }
+
+    void substr (INTVAL offset, INTVAL length, PMC* dest) {
+    }
+
+    STRING* substr_str (INTVAL offset, INTVAL length) {
+        return (STRING*)0;
+    }
+
+    void* invoke (void* next) {
+    }
+
+    void* invoke_pmc (PMC* sub, void* next) {
+    }
+
+    INTVAL can (STRING* method) {
+        return (INTVAL)0;
+    }
+
+    INTVAL can_keyed (PMC* key, STRING* method) {
+        return (INTVAL)0;
+    }
+
+    INTVAL can_keyed_int (INTVAL key, STRING* method) {
+        return (INTVAL)0;
+    }
+
+    INTVAL does (STRING* method) {
+        return (INTVAL)0;
+    }
+
+    INTVAL does_keyed (PMC* key, STRING* method) {
+        return (INTVAL)0;
+    }
+
+    INTVAL does_keyed_int (INTVAL key, STRING* method) {
+        return (INTVAL)0;
+    }
+
+}

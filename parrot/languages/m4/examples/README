@@ -1,0 +1,6 @@
+# $Id: README,v 1.2 2004/01/26 10:14:21 leo Exp $
+
+This dir contains various samble data and scripts.
+File with extension .frozen contain the freeze state of m4.
+
+only_builtins.frozen   - Waht you get when there are no used defined macros

@@ -1,0 +1,44 @@
+
+This is Ponie, development release 2
+------------------------------------
+
+	"And, isn't sanity really just a one-trick ponie anyway? I mean all you get is one trick, rational thinking, but when you're good and crazy, oooh, oooh, oooh, the sky is the limit." -- the tick
+
+
+Welcome to this second development release of ponie, the mix of perl5 and parrot. Ponie embeds a parrot interpreter inside perl5 and hands off tasks to it, the goal of the project is to hand of all data and bytecode handling to parrot.
+
+With this release all internal macros that poke at perl data types are converted to be real C functions and to check if they are dealing with traditional perl data types or PMC (Parrot data types) data. Perl lvalues, arrays and hashes are also hidden inside PMCs but still access their core data using traditional macros. The goal and purpose of this release is to make sure this approach keeps on working with the XS modules available on CPAN and to let people test with their own source code. No changes where made to any of the core XS modules.
+
+This is based on perl 5.9.1 as it existed in September, when 5.9.1 is really released ponie will be updated to that version, this might lead to there being perl bugs in ponie that are fixed in later versions on ponie.
+
+If you embed perl, nothing should have changed but parrot takes control over a substantial part of the interface to the operating system, this might cause problems for you. (One example is that parrot seems to hijack SIGINT currently, and weird issues with STDERR).
+
+INSTRUCTIONS
+------------
+
+run Configure.pl using your own perl, this will Configure perl, then configure parrot, build parrot and reconfigure perl with all the correct settings. If you run into a problem here, you can try doing this manually.
+
+After this just do make; make test and all tests should pass!
+
+Currently it is not possible to install ponie since parrot isn't installable.
+
+Please report any problems/bugs with patches or bug reports ponie-dev@perl.org
+
+LICENSE INFORMATION
+-------------------
+
+Parrot is Copyright (C) 2001-2004 The Perl Foundation. All Rights Reserved.
+
+This code is distributed under the same license as Perl 5; you can
+redistribute it and/or modify it under the terms of either:
+
+    a) the GNU General Public License as found in the directory "LICENSES"
+
+    b) the "Artistic License" which can be found in the directory "LICENSES"
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See either
+the GNU General Public License or the Artistic License for more details.
+
+
